@@ -4,22 +4,26 @@ import styled from 'styled-components';
 export default function WWCHeatTable (props) {
     return (
         <Table>
-            <THeaderRow>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Country</th>
-                <th>Searches</th>
-            </THeaderRow>
-            {props.data.map(item => {
-                return (
-                    <TDataRow>
-                        <TData>{item.id}</TData>
-                        <TData>{item.name}</TData>
-                        <TData>{item.country}</TData>
-                        <TData>{item.searches}</TData>
-                    </TDataRow>
-                )
-            })}
+            <thead>
+                <THeaderRow>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Country</th>
+                    <th>Searches</th>
+                </THeaderRow>
+            </thead>
+            <tbody>
+                {props.data.map(item => {
+                    return (
+                        <TDataRow key={item.id}>
+                            <TData>{item.id}</TData>
+                            <TData>{item.name}</TData>
+                            <TData>{item.country}</TData>
+                            <TData>{item.searches}</TData>
+                        </TDataRow>
+                    )
+                })}
+            </tbody>
         </Table>
     )
 }

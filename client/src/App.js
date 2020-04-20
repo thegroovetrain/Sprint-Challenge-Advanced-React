@@ -1,4 +1,6 @@
 import React from 'react';
+import './darkmode.css';
+import WWCHeader from './components/WWCHeader';
 import WWCHeatTable from './components/WWCHeatTable';
 
 export default class App extends React.Component {
@@ -20,7 +22,10 @@ export default class App extends React.Component {
 
   render () {
     return (
-      <WWCHeatTable data={this.state.data} />
+      <div>
+        <WWCHeader />
+        <WWCHeatTable data={this.state.data} />
+      </div>
     )
   }
 }

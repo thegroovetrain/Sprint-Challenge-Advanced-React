@@ -1,9 +1,28 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import { render } from '@testing-library/react';
 
-it('renders without crashing', () => {
-  const div = document.createElement('div');
-  ReactDOM.render(<App />, div);
-  ReactDOM.unmountComponentAtNode(div);
+import App from './App';
+import WWCHeatTable from './components/WWCHeatTable';
+
+test('renders without crashing', async () => {
+  render(<App />);
 });
+
+test('HeatTable renders with dummy data', async () => {
+  const dummyData = [
+    {
+      name: "Alex Morgan",
+      country: "United States",
+      searches: 100,
+      id: 0
+    },
+    {
+      name: "Megan Rapinoe",
+      country: "United States",
+      searches: 99,
+      id: 1
+    }
+  ];
+  render(<WWCHeatTable data={dummyData} />);
+})
+
